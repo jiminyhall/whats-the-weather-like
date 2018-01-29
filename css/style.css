@@ -2,25 +2,14 @@ body {
   color: white;
   text-align: center;
   text-shadow: 3px 3px 3px #000000;
-  font-family: Ubuntu;
+  font-family: 'Ubuntu', sans-serif;
   color: #ffff33;
   font-weight: normal;
   background-color: rgb(0,0,0);
   background-image: url('');
   background-size: cover;
   background-repeat:no-repeat;
-  border: 20px solid black;
-}
-
-@font-face {
-    font-family: 'weather';
-    src: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/93/artill_clean_icons-webfont.eot');
-    src: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/93/artill_clean_icons-webfont.eot?#iefix') format('embedded-opentype'),
-         url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/93/artill_clean_icons-webfont.woff') format('woff'),
-         url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/93/artill_clean_icons-webfont.ttf') format('truetype'),
-         url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/93/artill_clean_icons-webfont.svg#artill_clean_weather_iconsRg') format('svg');
-    font-weight: normal;
-    font-style: normal;
+  // border: 20px solid black;
 }
 
 #weather {
@@ -36,37 +25,37 @@ body {
 
 i {
   color: #ffff33;
-  font-family: weather;
+  // font-family: weather;
   font-size: 50px;
   font-weight: normal;
   font-style: normal;
   line-height: 1.0;
 }
 
-.icon-0:before { content: ":"; }
-.icon-1:before { content: "p"; }
-.icon-2:before { content: "S"; }
-.icon-3:before { content: "Q"; }
-.icon-4:before { content: "S"; }
-.icon-5:before { content: "W"; }
-.icon-6:before { content: "W"; }
-.icon-7:before { content: "W"; }
-.icon-8:before { content: "W"; }
-.icon-9:before { content: "I"; }
-.icon-10:before { content: "W"; }
-.icon-11:before { content: "I"; }
-.icon-12:before { content: "I"; }
-.icon-13:before { content: "I"; }
+.icon-0:before { content: ":"; }    // tornado
+.icon-1:before { content: "p"; }    // tropical storm
+.icon-2:before { content: "S"; }    // hurricane
+.icon-3:before { content: "Q"; }    // severe thunderstorms
+.icon-4:before { content: "S"; }    // thunderstorms
+.icon-5:before { content: "W"; }    // mixed rain and snow
+.icon-6:before { content: "W"; }    // mixed rain and sleet
+.icon-7:before { content: "W"; }    // mixed snow and sleet
+.icon-8:before { content: "W"; }    // freezing drizzle
+.icon-9:before { content: "I"; }    // drizzle
+.icon-10:before { content: "W"; }   // freezing rain
+.icon-11:before { content: "I"; }   // showers
+.icon-12:before { content: "I"; }   // showers
+.icon-13:before { content: "I"; }   // snow flurries
 .icon-14:before { content: "I"; }
 .icon-15:before { content: "W"; }
 .icon-16:before { content: "I"; }
 .icon-17:before { content: "W"; }
 .icon-18:before { content: "U"; }
-.icon-19:before { content: "Z"; }
-.icon-20:before { content: "Z"; }
-.icon-21:before { content: "Z"; }
-.icon-22:before { content: "Z"; }
-.icon-23:before { content: "Z"; }
+.icon-19:before { content: "Z"; }   // dust
+.icon-20:before { content: "Z"; }   // foggy
+.icon-21:before { content: "Z"; }   // haze
+.icon-22:before { content: "Z"; }   // smoky
+.icon-23::before { content: "<span class="pe-is-w-wind"></span>"; }   // blustery - &#xe9cf
 .icon-24:before { content: "E"; }
 .icon-25:before { content: "E"; }
 .icon-26:before { content: "3"; }
@@ -117,7 +106,7 @@ i {
 }
 
 #weather li {
-  
+
   padding-bottom: 10px;
   display: inline-block;
   border-radius: 0;

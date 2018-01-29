@@ -8,7 +8,7 @@ $(document).ready(function() {
 });
 
 var x = document.getElementById("demo");
-var y = document.getElemetById("map");
+var y = document.getElementById("map");
 var globalUnit = 'C';
 var globalLat;
 var globalLon;
@@ -51,16 +51,21 @@ function showPosition(position) {
 }
 
 function weatherBackground(code, currently) {
-  
+
   currently = currently.replace(" ",",");
-  var jsonURL = "http://api.flickr.com/services/feeds/photos_public.gne?tags=" + currently + "&size=b&lang=en-us&format=json&jsoncallback=?";
+  var jsonURL = "http://api.flickr.com/services/feeds/photos_public.gne?tags=" + currently + ",weather&size=b&lang=en-us&format=json&jsoncallback=?";
   console.log("API Call: " + jsonURL);
+
+
 
   $.getJSON(jsonURL, function(data) {
 
+    var rand = Math.floor(Math.random() * data.items.length);
+    console.log("Rand: " + rand);
+
       console.log('getJson');
-      console.log("size: " + data.items[0].media.m.replace("_m","_h"));
-      document.body.style.backgroundImage = "url('"+data.items[0].media.m.replace("_m","_h")+"')";
+      console.log("size: " + data.items[rand].media.m.replace("_m","_h"));
+      document.body.style.backgroundImage = "url('"+data.items[rand].media.m.replace("_m","_h")+"')";
       // document.body.style.backgroundImage = "url('http://pioneerinstitute.org/wp-content/u')";
 
     })
@@ -75,31 +80,7 @@ function weatherBackground(code, currently) {
     .complete(function() {
       console.log("JSON complete");
     });
-/*
-  if (jQuery.inArray(code, ['20', '21', '22', '26', '28', '30', '44']) >= 0) {
-    // Cloudy: 20,21,22,26,28,30,44
-    document.body.style.backgroundImage = "url('http://pioneerinstitute.org/wp-content/uploads/cloudy-road1.jpg')";
-  } else if (jQuery.inArray(code, ['0', '1', '2', '3', '4', '37', '38', '39', '45', '47']) >= 0) {
-    // Bad: 0,1,2,3,4,37,38,39,45,47
-    document.body.style.backgroundImage = "url('http://pioneerinstitute.org/wp-content/uploads/cloudy-road1.jpg')";
-  } else if (jQuery.inArray(code, ['5', '6', '7', '8', '9', '10', '13', '14', '15', '16', '17', '18', '25', '41', '42', '43', '46']) >= 0) {
-    //   Cold: 5,6,7,8,10,13,14,15,16,17,18,25,41,42,43,46
-    document.body.style.backgroundImage = "url('http://pioneerinstitute.org/wp-content/uploads/cloudy-road1.jpg')";
-  } else if (jQuery.inArray(code, ['23', '24']) >= 0) {
-    //  Clear: 23,24,
-    document.body.style.backgroundImage = "url('http://pioneerinstitute.org/wp-content/uploads/cloudy-road1.jpg')";
-  } else if (jQuery.inArray(code, ['9', '11', '12', '35', '40']) >= 0) {
-    // Wet: 9,11,12,35,40,
-    document.body.style.backgroundImage = "url('http://www.sampletekk.com/image/data/product_desc/Rain%20Piano%20MkII/050713rain-620x413.jpg')";
-  } else if (jQuery.inArray(code, ['19', '32', '34', '35']) >= 0) {
-    // Sunny/Hot: 19,32,34,36
-    document.body.style.backgroundImage = "url('http://7-themes.com/data_images/out/57/6965058-sunny-breeze.jpg')";
-  } else if (jQuery.inArray(code, ['27', '29', '31', '33']) >= 0) {
-    //   Night:27,29,31,33,
-    document.body.style.backgroundImage = "url('http://weknowyourdreams.com/images/night/night-04.jpg')";
-  }
-  
-  */
+
 }
 
 function loadWeather(location) {
@@ -109,13 +90,19 @@ function loadWeather(location) {
     location: location,
     unit: globalUnit,
     success: function(weather) {
-      
+
       weatherBackground(weather.code, weather.currently);
 
-      html = '<h2><i class="icon-' + weather.code + '"></i> ' + weather.temp + '&deg;' + weather.units.temp + '</h2>';
-      html += '<ul><li>' + weather.city + ', ' + weather.country + '</li>';
+      console.log("Weather code: " + weather.code);
+      console.log("Weather currently: " + weather.currently);
+      console.log("Weather temp: " + weather.temp);
+
+
+      html = '<ul><li>' + weather.city + ', ' + weather.country + '</li>';
       html += '<li class="currently">' + weather.currently + '</li>';
       html += '<li>' + weather.temp + '&deg;' + globalUnit + '</li></ul>';
+
+      console.log(html);
 
       $("#weather").html(html);
     },
