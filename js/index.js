@@ -66,9 +66,9 @@ function weatherBackground(code, currently) {
       console.log('getJson');
       console.log("size: " + data.items[rand].media.m.replace("_m","_h"));
       document.body.style.backgroundImage = "url('"+data.items[rand].media.m.replace("_m","_h")+"')";
-      // document.body.style.backgroundImage = "url('http://pioneerinstitute.org/wp-content/u')";
 
     })
+    /*
     .error(function(jqXHR, textStatus, errorThrown) {
         console.log("error: " + textStatus);
         console.log("errorThrown: " + errorThrown);
@@ -76,7 +76,9 @@ function weatherBackground(code, currently) {
     })
     .complete(function() {
       console.log("JSON complete");
-    });
+    })
+    */
+    ;
 
 }
 
