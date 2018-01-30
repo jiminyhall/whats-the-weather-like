@@ -5,9 +5,9 @@ $(document).ready(function() {
   document.getElementById("demo").innerHTML = "(" + globalLat + "," + globalLon + ")";
   loadWeather(globalLat + ',' + globalLon, '');
 
-  // use API key: AIzaSyCTFL-ABbaTGhSBBGgyOVzuKETrWiaV0eM
 
-  document.getElementById("map").innerHTML = "<img class='img-rounded' src='https://maps.google.com/maps/api/staticmap?center=" + globalLat + ',' + globalLon + "&markers=" + globalLat + ',' + globalLon + "&zoom=3&size=400x250&sensor=TRUE_OR_FALSE&key=AIzaSyCTFL-ABbaTGhSBBGgyOVzuKETrWiaV0eM'/>";
+  // use API key: AIzaSyCNw7pMg76mwnAMIiC98l9AY8zsERMn_vA
+  document.getElementById("map").innerHTML = "<img class='img-rounded' src='https://maps.google.com/maps/api/staticmap?center=" + globalLat + ',' + globalLon + "&markers=" + globalLat + ',' + globalLon + "&zoom=3&size=400x250&sensor=TRUE_OR_FALSE&key=AIzaSyCNw7pMg76mwnAMIiC98l9AY8zsERMn_vA'/>";
 });
 
 var x = document.getElementById("demo");
@@ -31,7 +31,7 @@ function getLocation() {
       loadWeather(position.coords.latitude + ',' + position.coords.longitude);
       globalLat = position.coords.latitude;
       globalLon = position.coords.longitude;
-      document.getElementById("map").innerHTML = "<img class='img-rounded' src='https://maps.google.com/maps/api/staticmap?center=" + position.coords.latitude + ',' + position.coords.longitude + "&markers=" + position.coords.latitude + ',' + position.coords.longitude + "&zoom=3&size=400x250&sensor=TRUE_OR_FALSE&key=AIzaSyCTFL-ABbaTGhSBBGgyOVzuKETrWiaV0eM'/>";
+      document.getElementById("map").innerHTML = "<img class='img-rounded' src='https://maps.google.com/maps/api/staticmap?center=" + position.coords.latitude + ',' + position.coords.longitude + "&markers=" + position.coords.latitude + ',' + position.coords.longitude + "&zoom=3&size=400x250&sensor=TRUE_OR_FALSE&key=AIzaSyCNw7pMg76mwnAMIiC98l9AY8zsERMn_vA'/>";
     });
   } else {
     x.innerHTML = "Geolocation is not supported by this browser.";
@@ -46,7 +46,7 @@ function getRandomLocation() {
   loadWeather(lat + ',' + long)
   globalLat = lat;
   globalLon = long;
-  document.getElementById("map").innerHTML = "<img class='img-rounded' src='https://maps.google.com/maps/api/staticmap?center=" + lat + ',' + long + "&markers=" + lat + ',' + long + "&zoom=3&size=400x250&sensor=TRUE_OR_FALSE&key=AIzaSyCTFL-ABbaTGhSBBGgyOVzuKETrWiaV0eM'/>";
+  document.getElementById("map").innerHTML = "<img class='img-rounded' src='https://maps.google.com/maps/api/staticmap?center=" + lat + ',' + long + "&markers=" + lat + ',' + long + "&zoom=3&size=400x250&sensor=TRUE_OR_FALSE&key=AIzaSyCNw7pMg76mwnAMIiC98l9AY8zsERMn_vA'/>";
 }
 
 function showPosition(position) {
