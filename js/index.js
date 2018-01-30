@@ -69,9 +69,6 @@ function weatherBackground(code, currently) {
       // document.body.style.backgroundImage = "url('http://pioneerinstitute.org/wp-content/u')";
 
     })
-    .success(function(data, textStatus, jqXHR) {
-      console.log("JSON success");
-    })
     .error(function(jqXHR, textStatus, errorThrown) {
         console.log("error: " + textStatus);
         console.log("errorThrown: " + errorThrown);
