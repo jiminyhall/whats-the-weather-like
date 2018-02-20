@@ -4,10 +4,13 @@ $(document).ready(function() {
   globalUnit = 'f';
   document.getElementById("demo").innerHTML = "(" + globalLat + "," + globalLon + ")";
   loadWeather(globalLat + ',' + globalLon, '');
+  var width = window.innerWidth;
+  if (width > 400) width=400;
+  var height = width/1.6;
 
 
   // use API key: AIzaSyCNw7pMg76mwnAMIiC98l9AY8zsERMn_vA
-  document.getElementById("map").innerHTML = "<img class='img-rounded' src='https://maps.google.com/maps/api/staticmap?center=" + globalLat + ',' + globalLon + "&markers=" + globalLat + ',' + globalLon + "&zoom=3&size=400x250&sensor=TRUE_OR_FALSE&key=AIzaSyCNw7pMg76mwnAMIiC98l9AY8zsERMn_vA'/>";
+  document.getElementById("map").innerHTML = "<img class='img-rounded' src='https://maps.google.com/maps/api/staticmap?center=" + globalLat + ',' + globalLon + "&markers=" + globalLat + ',' + globalLon + "&zoom=3&size="+width+"x"+height+"&sensor=TRUE_OR_FALSE&key=AIzaSyCNw7pMg76mwnAMIiC98l9AY8zsERMn_vA'/>";
 });
 
 var x = document.getElementById("demo");
